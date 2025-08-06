@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenshotClient", "ScreenshotClient\ScreenshotClient.csproj", "{185D0FC3-5457-45AF-A448-5FE2A6C6ED8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenshotCommonLib", "..\commonLib\ScreenshotCommonLib\ScreenshotCommonLib.csproj", "{B3BF2B92-3017-445E-9681-5196E201A550}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{185D0FC3-5457-45AF-A448-5FE2A6C6ED8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{185D0FC3-5457-45AF-A448-5FE2A6C6ED8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{185D0FC3-5457-45AF-A448-5FE2A6C6ED8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{185D0FC3-5457-45AF-A448-5FE2A6C6ED8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BF2B92-3017-445E-9681-5196E201A550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BF2B92-3017-445E-9681-5196E201A550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BF2B92-3017-445E-9681-5196E201A550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BF2B92-3017-445E-9681-5196E201A550}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
