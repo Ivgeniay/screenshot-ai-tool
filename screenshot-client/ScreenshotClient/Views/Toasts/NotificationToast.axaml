@@ -1,0 +1,120 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ScreenshotClient.Views.Toasts.NotificationToast"
+        Title="Toast"
+        Width="350"
+        Height="100"
+        SystemDecorations="None"
+        Topmost="True"
+        ShowInTaskbar="False"
+        CanResize="False"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True">
+
+    <Window.Styles>
+        <Style Selector="Border.toast-container">
+            <Setter Property="Background" Value="#2D2D30"/>
+            <Setter Property="BorderBrush" Value="#404040"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="BoxShadow" Value="0 4 16 0 #40000000"/>
+        </Style>
+        
+        <Style Selector="Border.toast-container.info">
+            <Setter Property="BorderBrush" Value="#0078D4"/>
+        </Style>
+        
+        <Style Selector="Border.toast-container.success">
+            <Setter Property="BorderBrush" Value="#107C10"/>
+        </Style>
+        
+        <Style Selector="Border.toast-container.warning">
+            <Setter Property="BorderBrush" Value="#FFB900"/>
+        </Style>
+        
+        <Style Selector="Border.toast-container.error">
+            <Setter Property="BorderBrush" Value="#D13438"/>
+        </Style>
+
+        <Style Selector="TextBlock.toast-title">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Margin" Value="0,0,0,4"/>
+        </Style>
+
+        <Style Selector="TextBlock.toast-message">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#CCCCCC"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="LineHeight" Value="16"/>
+        </Style>
+
+        <Style Selector="Path.toast-icon">
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,12,0"/>
+        </Style>
+
+        <Style Selector="Path.toast-icon.info">
+            <Setter Property="Fill" Value="#0078D4"/>
+        </Style>
+
+        <Style Selector="Path.toast-icon.success">
+            <Setter Property="Fill" Value="#107C10"/>
+        </Style>
+
+        <Style Selector="Path.toast-icon.warning">
+            <Setter Property="Fill" Value="#FFB900"/>
+        </Style>
+
+        <Style Selector="Path.toast-icon.error">
+            <Setter Property="Fill" Value="#D13438"/>
+        </Style>
+
+        <Style Selector="Button.toast-close">
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0,-4,-4,0"/>
+        </Style>
+
+        <Style Selector="Button.toast-close:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#40FFFFFF"/>
+        </Style>
+
+        <Style Selector="Button.toast-close Path">
+            <Setter Property="Fill" Value="#CCCCCC"/>
+            <Setter Property="Width" Value="12"/>
+            <Setter Property="Height" Value="12"/>
+        </Style>
+    </Window.Styles>
+
+    <Border Name="ToastContainer" Classes="toast-container">
+        <Grid ColumnDefinitions="Auto,*,Auto">
+            <Path Name="ToastIcon" 
+                  Grid.Column="0"
+                  Classes="toast-icon"
+                  Data="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,17A1.5,1.5 0 0,0 13.5,15.5A1.5,1.5 0 0,0 12,14A1.5,1.5 0 0,0 10.5,15.5A1.5,1.5 0 0,0 12,17M12,7A1,1 0 0,0 11,8V12A1,1 0 0,0 12,13A1,1 0 0,0 13,12V8A1,1 0 0,0 12,7Z"/>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Name="ToastTitle" Classes="toast-title"/>
+                <TextBlock Name="ToastMessage" Classes="toast-message"/>
+            </StackPanel>
+
+            <Button Name="CloseButton" 
+                    Grid.Column="2"
+                    Classes="toast-close"
+                    Click="OnCloseClick">
+                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

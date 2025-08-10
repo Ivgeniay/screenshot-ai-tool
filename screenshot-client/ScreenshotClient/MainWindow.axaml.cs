@@ -7,6 +7,7 @@ using Avalonia.Controls;
 using Avalonia.Platform;
 using Avalonia;
 using System;
+using Avalonia.Interactivity;
 
 namespace ScreenshotClient
 {
@@ -30,9 +31,12 @@ namespace ScreenshotClient
             InitializeTrayIcon();
             InitializeHotkeys();
 
-            this.WindowState = WindowState.Minimized;
-            this.ShowInTaskbar = false;
-            this.IsVisible = false;
+        }
+
+        protected override void OnLoaded(RoutedEventArgs e)
+        {
+            base.OnLoaded(e);
+            HideWindow();
         }
 
         private void InitializeTrayIcon()
@@ -43,11 +47,11 @@ namespace ScreenshotClient
             _trayIcon.IsVisible = true;
 
             var menu = new NativeMenu();
-            
-            var showItem = new NativeMenuItem("Показать");
+
+            var showItem = new NativeMenuItem("Show");
             showItem.Click += (_, _) => ShowWindow();
-            
-            var exitItem = new NativeMenuItem("Выход");
+
+            var exitItem = new NativeMenuItem("Exit");
             exitItem.Click += (_, _) => ExitApplication();
 
             menu.Add(showItem);
@@ -67,6 +71,7 @@ namespace ScreenshotClient
         private async void OnScreenshotHotkey()
         {
             await _toastService.ShowToastAsync("Функция скриншота пока не реализована", ToastType.Info);
+            // Console.WriteLine("Not");
         }
 
         private void ShowWindow()
@@ -80,6 +85,7 @@ namespace ScreenshotClient
         private void HideWindow()
         {
             this.Hide();
+            this.WindowState = WindowState.Minimized;
             this.ShowInTaskbar = false;
         }
 
